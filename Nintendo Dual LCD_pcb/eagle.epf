@@ -1,0 +1,32 @@
+[Eagle]
+Version="06 05 00"
+Platform="Windows"
+Serial="62191E841E-LSR-WLM-1EL"
+Globals="Globals"
+Desktop="Desktop"
+
+[Globals]
+AutoSaveProject=1
+UsedLibrary="C:/Documents and Settings/Me/My Documents/MyEagle/lbr/1AA_Stofer.lbr"
+UsedLibrary="C:/Documents and Settings/Me/My Documents/MyEagle/lbr/SC_1.lbr"
+UsedLibrary="C:/Documents and Settings/Me/My Documents/MyEagle/lbr/con-phoenix-350.lbr"
+UsedLibrary="C:/Documents and Settings/Me/My Documents/MyEagle/lbr/crystal.lbr"
+UsedLibrary="C:/Documents and Settings/Me/My Documents/MyEagle/lbr/diode.lbr"
+UsedLibrary="C:/Documents and Settings/Me/My Documents/MyEagle/lbr/dp_devices.lbr"
+UsedLibrary="C:/Documents and Settings/Me/My Documents/MyEagle/lbr/led.lbr"
+UsedLibrary="C:/Documents and Settings/Me/My Documents/MyEagle/lbr/microchip.lbr"
+UsedLibrary="C:/Documents and Settings/Me/My Documents/MyEagle/lbr/silabs_CP2104.lbr"
+UsedLibrary="C:/Documents and Settings/Me/My Documents/MyEagle/lbr/switch.lbr"
+UsedLibrary="C:/Documents and Settings/Me/My Documents/MyEagle/lbr/wifi_WX.lbr"
+UsedLibrary="C:/Documents and Settings/Me/My Documents/MyEagle/lbr/Sparkfun/SparkFun-Connectors.lbr"
+UsedLibrary="C:/Documents and Settings/Me/My Documents/MyEagle/lbr/Sparkfun/SparkFun-Passives.lbr"
+
+[Win_1]
+Type="Control Panel"
+Loc="336 143 935 542"
+State=1
+Number=0
+
+[Desktop]
+Screen="1680 1050"
+Window="Win_1"

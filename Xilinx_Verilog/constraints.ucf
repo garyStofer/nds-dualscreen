@@ -1,0 +1,118 @@
+NET "MyTest" LOC = P29;
+NET "MyTest" IOSTANDARD = LVCMOS33;
+NET "ext" LOC = P52;
+NET "ext" IOSTANDARD = LVCMOS33;
+NET "ext2" LOC = P56;
+NET "ext2" IOSTANDARD = LVCMOS33;
+
+NET "nds_pix_clk" LOC = P86;
+NET "nds_hsync" LOC = P89;
+NET "nds_vsync" LOC = P88;
+
+
+NET "nds_pix_clk" IOSTANDARD = LVCMOS33;
+NET "nds_hsync" IOSTANDARD = LVCMOS33;
+NET "nds_vsync" IOSTANDARD = LVCMOS33;
+
+NET "nds_data[0]" LOC = P28;
+NET "nds_data[1]" LOC = P50;
+NET "nds_data[2]" LOC = P32;
+NET "nds_data[3]" LOC = P33;
+NET "nds_data[4]" LOC = P34;
+NET "nds_data[5]" LOC = P35;
+
+NET "nds_data[6]" LOC = P36;
+NET "nds_data[7]" LOC = P37;
+NET "nds_data[8]" LOC = P41;
+NET "nds_data[9]" LOC = P43;
+NET "nds_data[10]" LOC = P44;
+NET "nds_data[11]" LOC = P49;
+
+NET "nds_data[12]" LOC = P65;
+NET "nds_data[13]" LOC = P70;
+NET "nds_data[14]" LOC = P71;
+NET "nds_data[15]" LOC = P72;
+NET "nds_data[16]" LOC = P73;
+NET "nds_data[17]" LOC = P77;
+
+
+NET "nds_data[0]" IOSTANDARD = LVCMOS33;
+NET "nds_data[1]" IOSTANDARD = LVCMOS33;
+NET "nds_data[2]" IOSTANDARD = LVCMOS33;
+NET "nds_data[3]" IOSTANDARD = LVCMOS33;
+NET "nds_data[4]" IOSTANDARD = LVCMOS33;
+NET "nds_data[5]" IOSTANDARD = LVCMOS33;
+NET "nds_data[6]" IOSTANDARD = LVCMOS33;
+NET "nds_data[7]" IOSTANDARD = LVCMOS33;
+NET "nds_data[8]" IOSTANDARD = LVCMOS33;
+NET "nds_data[9]" IOSTANDARD = LVCMOS33;
+NET "nds_data[10]" IOSTANDARD = LVCMOS33;
+NET "nds_data[11]" IOSTANDARD = LVCMOS33;
+NET "nds_data[12]" IOSTANDARD = LVCMOS33;
+NET "nds_data[13]" IOSTANDARD = LVCMOS33;
+NET "nds_data[14]" IOSTANDARD = LVCMOS33;
+NET "nds_data[15]" IOSTANDARD = LVCMOS33;
+NET "nds_data[16]" IOSTANDARD = LVCMOS33;
+NET "nds_data[17]" IOSTANDARD = LVCMOS33;
+
+NET "clk" IOSTANDARD = LVCMOS33;
+NET "clk" LOC = P84;
+NET "hsync_out" IOSTANDARD = LVCMOS33;
+NET "hsync_out" LOC = P98;
+NET "vsync_out" IOSTANDARD = LVCMOS33;
+NET "vsync_out" LOC = P93;
+NET "DE" IOSTANDARD = LVCMOS33;
+NET "DE" LOC = P78;
+
+NET "clk_A" IOSTANDARD = LVCMOS33;
+NET "clk_A" LOC = P85;
+
+NET "clk_B" IOSTANDARD = LVCMOS33;
+NET "clk_B" LOC = P83;
+
+NET "nec_data[0]" LOC = P3;	// Red lsb
+NET "nec_data[1]" LOC = P4;
+NET "nec_data[2]" LOC = P5;
+NET "nec_data[3]" LOC = P6;
+NET "nec_data[4]" LOC = P9;
+NET "nec_data[5]" LOC = P10;
+NET "nec_data[6]" LOC = P12; 	// Green lsb
+NET "nec_data[7]" LOC = P13;
+NET "nec_data[8]" LOC = P15;
+NET "nec_data[9]" LOC = P16;
+NET "nec_data[10]" LOC = P19;
+NET "nec_data[11]" LOC = P20;
+NET "nec_data[12]" LOC = P57;	// Blue lsb
+NET "nec_data[13]" LOC = P59;
+NET "nec_data[14]" LOC = P60;
+NET "nec_data[15]" LOC = P61;
+NET "nec_data[16]" LOC = P62;
+NET "nec_data[17]" LOC = P64;
+
+
+NET "nec_data[0]" IOSTANDARD = LVCMOS33;
+NET "nec_data[1]" IOSTANDARD = LVCMOS33;
+NET "nec_data[2]" IOSTANDARD = LVCMOS33;
+NET "nec_data[3]" IOSTANDARD = LVCMOS33;
+NET "nec_data[4]" IOSTANDARD = LVCMOS33;
+NET "nec_data[5]" IOSTANDARD = LVCMOS33;
+NET "nec_data[6]" IOSTANDARD = LVCMOS33;
+NET "nec_data[7]" IOSTANDARD = LVCMOS33;
+NET "nec_data[8]" IOSTANDARD = LVCMOS33;
+NET "nec_data[9]" IOSTANDARD = LVCMOS33;
+NET "nec_data[10]" IOSTANDARD = LVCMOS33;
+NET "nec_data[11]" IOSTANDARD = LVCMOS33;
+NET "nec_data[12]" IOSTANDARD = LVCMOS33;
+NET "nec_data[13]" IOSTANDARD = LVCMOS33;
+NET "nec_data[14]" IOSTANDARD = LVCMOS33;
+NET "nec_data[15]" IOSTANDARD = LVCMOS33;
+NET "nec_data[16]" IOSTANDARD = LVCMOS33;
+NET "nec_data[17]" IOSTANDARD = LVCMOS33;
+
+
+
+
+NET "clk_B" SLEW = SLOW;
+NET "clk_B" DRIVE = 16;
+NET "clk_A" DRIVE = 16;
+NET "clk_A" SLEW = SLOW;
