@@ -1,8 +1,0 @@
-INTSTYLE=ise
-INFILE=C:\Users\me\Documents\LCD_Nintendo\Xilinx_Verilog\main2.ncd
-OUTFILE=C:\Users\me\Documents\LCD_Nintendo\Xilinx_Verilog\main2.bit
-FAMILY=Spartan3A and Spartan3AN
-PART=xc3s50a-4vq100
-WORKINGDIR=C:\Users\me\Documents\LCD_Nintendo\Xilinx_Verilog
-LICENSE=WebPack
-USER_INFO=210919589_0_0_927
