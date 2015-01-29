@@ -42,21 +42,21 @@ module main2(
 	reg nds_line_cnt;
 	reg [8:0] x;
 	reg h;
-	reg z;
 	reg togg_l;
 
  
  
-	wire p;			// this is the 54 Mhz clock  output from the DCM_DLL that gets divided by 2
-	reg NEC_pix_clk;	// clock used in this module to count pixels and enable data onto te color busses
+	wire p;				// this is the 54 Mhz clock  output from the DCM_DLL that gets divided by 2
+	reg NEC_pix_clk;	//  used in this module to count pixels and enable data onto te color busses
 	reg [10:0] pix_cnt_out;	// A counter to keep track of the current pixel position on a line
 	reg h_sync_out;
+	reg v_sync_out;
 	wire locked;
 		
 	reg [9:0] line_cnt_out;// A counter to keep track of the current line of the display
 	
 
-
+	assign MyTest = 0;
   	
 // Instantiate the DCM/DLL module as defined in the .xaw wizzard output file 
 	DCM_DLL PixClockDll (.CLKIN_IN(clk),.CLKFX_OUT(p),.LOCKED_OUT(locked)
@@ -145,36 +145,28 @@ module main2(
 	
 	
 	// Create the NEC V-Sync and sync the frame to the NDS frame			
-
-	always @ (negedge buf_h_sync_out or negedge nds_vsync )	begin	// Count the horizontal lines and create the vertical sync
-		 if ( ! nds_vsync ) begin
-		 		line_cnt_out <=68;
-				z <= 0;
+	// Count the horizontal lines and create the vertical sync
+	always @ (negedge buf_h_sync_out or negedge nds_vsync )	begin	
+		 if ( ! nds_vsync ) begin	// This is the frame sync from the NDS syncing the frame of the output
+		 		line_cnt_out <=0;
 		 end 
 		 else  begin
-			 if (line_cnt_out == 520 )		
-					z <= 1;
-			if (line_cnt_out < 525 ) 			// 525 is the raw vertical line count of the NEC display
-				line_cnt_out <= line_cnt_out +1; 
-			else
+			if (line_cnt_out > 535 ) 			// 525 is the raw vertical line count of the NEC display. This should never happen, it's just in case we miss the nds vsync
 				line_cnt_out <=0;
+			else
+				line_cnt_out <= line_cnt_out +1; 
+				
+			if (line_cnt_out < 1 )// create the vertical sync for the first vertical line. 
+				v_sync_out <= 0;
+			else
+				v_sync_out <=1;
 		end	
 		
 	end
 
-assign MyTest = z;	 
-	/*
-	// Create the NEC V-Sync and sync the frame to the NDS frame	
-	always @ (negedge h_sync_out)	begin	// Count the horizontal lines and create the vertical sync
-		if (line_cnt_out > 524 && !nds_vsync ) 			// 525 is the raw vertical line count of the NEC display
-			line_cnt_out <= 0;  // No head start 
-		else
-			line_cnt_out <= line_cnt_out +1;
-		
-	end
-	*/
-	assign vsync_out = (line_cnt_out < 2) ? 0:1;	// create the vertical sync for the first two vertical lines. 
-   //assign vsync_out = (line_cnt_out >=480 && line_cnt_out <482) ? 0 :1;
+	
+	assign vsync_out = v_sync_out;	// Connect to output wire
+  
 	// Create the NEC H-Sync and syncronize it to the NDS H-Sync
 	// counting the line pixels and creating the horizontal sync signal during the initial 96 pixelc counts
 	always @(posedge buf_NEC_pix_clk  ) begin  // buf_NEC_pix_clk is 27mhz
@@ -198,7 +190,7 @@ assign MyTest = z;
 			h_sync_out <= 1; 
 		
 		// Create the Data Enable in the display window of the NEC display, this is 640x480 visible pixels 	
-		if ( (line_cnt_out> 33 && line_cnt_out<514) && (pix_cnt_out>143 && pix_cnt_out <785) )
+		if ( (line_cnt_out> 6 && line_cnt_out<487) && (pix_cnt_out>143 && pix_cnt_out <785) )
 			DE <= 1;
 		else
 			DE <= 0;
@@ -220,7 +212,7 @@ assign MyTest = z;
 	
 		if (NEC_pix_clk)  //data for display A
 		begin	
-			if ((line_cnt_out < 78 || line_cnt_out > 461) || (pix_cnt_out < 209 || pix_cnt_out > 720))
+			if ((line_cnt_out < 10|| line_cnt_out > 393) || (pix_cnt_out < 209 || pix_cnt_out > 720))
 				nec_data <= 18'h20820; // gray frame 
 			else 	begin
 				if (line_cnt_out[1])
@@ -231,7 +223,7 @@ assign MyTest = z;
 		end	
 		else 
 		begin	// for display B
-			if ((line_cnt_out < 78 || line_cnt_out > 461) || (pix_cnt_out < 210 || pix_cnt_out > 721))
+			if ((line_cnt_out < 10 || line_cnt_out > 393) || (pix_cnt_out < 210 || pix_cnt_out > 721))
 					nec_data <= 18'h20820;	// gray frame 
 			else
 			begin
